@@ -8,10 +8,11 @@ Acme::CPANAuthors::Acme::CPANAuthors::Authors - We are CPAN authors who have aut
 
 =cut
 
-our $VERSION = q[0.1234567890];
+our $VERSION = q[0.1239933158];
 use Acme::CPANAuthors::Register (
     ACALPINI  => q[Aldo Calpini], # A::C::Italian
     ASHLEY    => q[Ashley Pond V], # A::C::Misanthrope
+    BRACETA   => q[Luís Azevedo], # A::C::Portuguese
     FAYLAND   => q[Fayland 林], # A::C::Chinese
     GARU      => q[Breno G. de Oliveira], # A::C::Brazilian
     GUGOD     => q[劉康民], # A::C::Taiwanese
@@ -24,6 +25,7 @@ use Acme::CPANAuthors::Register (
     SFINK     => q[Steve A Fink], # A::C::Not
     SHARIFULN => q[Анатолий Шарифулин], # A::C::Russian
     SHLOMIF   => q[Shlomi Fish], # A::C::Israeli
+    VPIT      => q[Vincent Pit], # A::C::You're_using
     ZOFFIX    => q[Zoffix Znet] # A::C::Canadian
 );
 
@@ -157,6 +159,6 @@ by the Creative Commons Attribution-Share Alike 3.0 License.  See
 http://creativecommons.org/licenses/by-sa/3.0/us/legalcode.  For
 clarification, see http://creativecommons.org/licenses/by-sa/3.0/us/.
 
-=for svn $Id: Authors.pm 8 2009-02-13 20:10:22Z sanko@cpan.org $
+=for svn $Id: Authors.pm 10 2009-04-17 01:59:57Z sanko@cpan.org $
 
 =cut
