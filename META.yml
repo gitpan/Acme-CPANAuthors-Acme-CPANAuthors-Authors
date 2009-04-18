@@ -1,15 +1,15 @@
 ---
 name: Acme-CPANAuthors-Acme-CPANAuthors-Authors
-version: 0.1239933158
+version: 0.1240065387
 author:
   - 'Sanko Robinson <sanko@cpan.org>'
 abstract: We are CPAN authors who have authored Acme::CPANAuthors modules
 license: artistic_2
 resources:
-  ChangeLog: http://code.google.com/p/sanko/source/list
-  bugtracker: http://code.google.com/p/sanko/issues/list
+  ChangeLog: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/commits/master
+  bugtracker: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/issues
   license: http://www.perlfoundation.org/artistic_license_2_0
-  repository: http://code.google.com/p/sanko/source/browse/#svn/trunk/Acme-CPANAuthors-Acme-CPANAuthors-Authors
+  repository: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/tree
 requires:
   Acme::CPANAuthors: 0
   Acme::CPANAuthors::Register: 0
@@ -19,7 +19,7 @@ build_requires:
 provides:
   Acme::CPANAuthors::Acme::CPANAuthors::Authors:
     file: lib/Acme/CPANAuthors/Acme/CPANAuthors/Authors.pm
-    version: 0.1239933158
+    version: 0.1240065387
 generated_by: 'Conversion, software version 7.0'
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
