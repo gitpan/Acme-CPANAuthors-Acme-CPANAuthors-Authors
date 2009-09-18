@@ -8,28 +8,32 @@ Acme::CPANAuthors::Acme::CPANAuthors::Authors - We are CPAN authors who have aut
 
 =cut
 
-our $VERSION = q[0.1240065387];
+our $VERSION = q[0.1253301444];
 use Acme::CPANAuthors::Register (
-    ACALPINI  => q[Aldo Calpini], # A::C::Italian
-    ASHLEY    => q[Ashley Pond V], # A::C::Misanthrope
-    BRACETA   => q[Luís Azevedo], # A::C::Portuguese
-    BURAK     => q[Burak Gürsoy], # A::C::Turkish
-    FAYLAND   => q[Fayland 林], # A::C::Chinese
-    GARU      => q[Breno G. de Oliveira], # A::C::Brazilian
-    GUGOD     => q[劉康民], # A::C::Taiwanese
-    HINRIK    => q[Hinrik Örn Sigurðsson], # A::C::Icelandic
-    ISHIGAKI  => q[Kenichi Ishigaki], # The Original
-    KENTARO   => q[Kentaro Kuribayashi], # A::C::GeekHouse
-    MARCEL    => q[Marcel Grünauer == hanekomu], # A::C::Austrian
-    SANKO     => q[Sanko Robinson], # Hey, that's me!
-    SAPER     => q[Sébastien Aperghis-Tramoni], # A::C::French
-    SFINK     => q[Steve A Fink], # A::C::Not
-    SHARIFULN => q[Анатолий Шарифулин], # A::C::Russian
-    SHLOMIF   => q[Shlomi Fish], # A::C::Israeli
-    VPIT      => q[Vincent Pit], # A::C::You're_using
-    ZOFFIX    => q[Zoffix Znet] # A::C::Canadian
+    ACALPINI => q[Aldo Calpini],     # A::C::Italian
+    ASHLEY   => q[Ashley Pond V],    # A::C::Misanthrope
+    AZAWAWI =>
+        q[أحمد محمد زواوي - Ahmad M. Zawawi],    # A::C::Arabic
+    BINGOS    => q[Chris Williams],                       # A::C::POE
+    BRACETA   => q[Luís Azevedo],                        # A::C::Portuguese
+    BURAK     => q[Burak Gürsoy],                        # A::C::Turkish
+    FAYLAND   => q[Fayland 林],                          # A::C::Chinese
+    FLORA     => q[Florian Ragwitz],                      # A::C::German
+    GARU      => q[Breno G. de Oliveira],                 # A::C::Brazilian
+    GUGOD     => q[劉康民],                            # A::C::Taiwanese
+    HINRIK    => q[Hinrik Örn Sigurðsson],              # A::C::Icelandic
+    ISHIGAKI  => q[Kenichi Ishigaki],                     # The Original
+    KENTARO   => q[Kentaro Kuribayashi],                  # A::C::GeekHouse
+    MARCEL    => q[Marcel Grünauer == hanekomu],         # A::C::Austrian
+    MONS      => q[Mons Anderson],                        # A::C::AnyEvent
+    SANKO     => q[Sanko Robinson],                       # Hey, that's me!
+    SAPER     => q[Sébastien Aperghis-Tramoni],          # A::C::French
+    SFINK     => q[Steve A Fink],                         # A::C::Not
+    SHARIFULN => q[Анатолий Шарифулин],  # A::C::Russian
+    SHLOMIF   => q[Shlomi Fish],                          # A::C::Israeli
+    VPIT      => q[Vincent Pit],                          # A::C::You're_using
+    ZOFFIX    => q[Zoffix Znet]                           # A::C::Canadian
 );
-
 1;
 
 =head1 Synopsis
@@ -159,7 +163,5 @@ When separated from the distribution, all POD documentation is covered
 by the Creative Commons Attribution-Share Alike 3.0 License.  See
 http://creativecommons.org/licenses/by-sa/3.0/us/legalcode.  For
 clarification, see http://creativecommons.org/licenses/by-sa/3.0/us/.
-
-=for svn $Id: Authors.pm 10 2009-04-17 01:59:57Z sanko@cpan.org $
 
 =cut

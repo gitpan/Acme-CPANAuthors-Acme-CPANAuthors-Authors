@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Module::Build;
-my $is_developer = ((-d q[.svn]) ? 1 : 0) or ($ENV{RELEASE_TESTING} ? 1 : 0);
+my $is_developer = ((-d q[.git]) ? 1 : 0) or ($ENV{RELEASE_TESTING} ? 1 : 0);
 my $class = $is_developer
     ? Module::Build->subclass(
                     class => q[Acme::CPANAuthors::Acme::CPANAuthors::Authors],
@@ -40,13 +40,9 @@ my $builder = $class->new(
                 q[http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/issues],
             ChangeLog =>
                 q[http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/commits/master],
-
-            #homepage  => q[http://sankorobinson.com/acaca/],
             license => q[http://www.perlfoundation.org/artistic_license_2_0],
-
-            #MailingList => q[http://groups.google.com/group/net-bittorrent],
             repository =>
-                q[http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/tree]
+                q[http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/]
         }
     },
 );
@@ -64,5 +60,3 @@ When separated from the distribution, all POD documentation is covered by
 the Creative Commons Attribution-Share Alike 3.0 License.  See
 http://creativecommons.org/licenses/by-sa/3.0/us/legalcode.  For
 clarification, see http://creativecommons.org/licenses/by-sa/3.0/us/.
-
-$Id: Build.PL 8 2009-02-13 20:10:22Z sanko@cpan.org $

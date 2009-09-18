@@ -5,17 +5,17 @@ use Acme::CPANAuthors;
 use Test::More tests => 3;
 my $authors
     = Acme::CPANAuthors->new('Acme::CPANAuthors::Acme::CPANAuthors::Authors');
-is($authors->count, 18, 'number of authors == 18');
+is($authors->count, 22, 'number of authors == 19');
 is_deeply(
     [sort $authors->id],
-    [qw[ ACALPINI    ASHLEY
-         BRACETA     BURAK
-         FAYLAND
+    [qw[ ACALPINI    ASHLEY  AZAWAWI
+         BINGOS      BRACETA BURAK
+         FAYLAND     FLORA
          GARU        GUGOD
          HINRIK
          ISHIGAKI
          KENTARO
-         MARCEL
+         MARCEL      MONS
          SANKO       SAPER   SFINK   SHARIFULN   SHLOMIF
          VPIT
          ZOFFIX                                         ]
