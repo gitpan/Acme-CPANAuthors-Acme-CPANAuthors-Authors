@@ -11,7 +11,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Test::More' => 0,
                            'Acme::CPANAuthors::Register' => 0,
-                           'Acme::CPANAuthors' => 0
+                           'Acme::CPANAuthors' => '0.09'
                          }
         )
 ;

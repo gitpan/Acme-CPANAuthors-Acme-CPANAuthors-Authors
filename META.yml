@@ -1,6 +1,6 @@
 ---
 name: Acme-CPANAuthors-Acme-CPANAuthors-Authors
-version: 0.1253301444
+version: 0.1256760525
 author:
   - 'Sanko Robinson <sanko@cpan.org>'
 abstract: We are CPAN authors who have authored Acme::CPANAuthors modules
@@ -13,7 +13,7 @@ resources:
 build_requires:
   Test::More: 0
 requires:
-  Acme::CPANAuthors: 0
+  Acme::CPANAuthors: 0.09
   Acme::CPANAuthors::Register: 0
   perl: 5.006
 configure_requires:
@@ -21,7 +21,7 @@ configure_requires:
 provides:
   Acme::CPANAuthors::Acme::CPANAuthors::Authors:
     file: lib/Acme/CPANAuthors/Acme/CPANAuthors/Authors.pm
-    version: 0.1253301444
+    version: 0.1256760525
 generated_by: 'Conversion, software version 7.0'
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
