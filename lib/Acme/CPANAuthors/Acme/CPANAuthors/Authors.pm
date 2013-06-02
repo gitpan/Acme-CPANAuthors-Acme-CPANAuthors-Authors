@@ -8,7 +8,7 @@ Acme::CPANAuthors::Acme::CPANAuthors::Authors - We are CPAN authors who have aut
 
 =cut
 
-our $VERSION = q[0.1257908582];
+use version; our $VERSION = version->declare('v1.0.0');
 use Acme::CPANAuthors::Register (
     ABIGAIL  => q[Abigail],          # A::C::Dutch ...or not.
     ACALPINI => q[Aldo Calpini],     # A::C::Italian
@@ -19,24 +19,78 @@ use Acme::CPANAuthors::Register (
     BINGOS    => q[Chris Williams],                       # A::C::POE
     BRACETA   => q[Luís Azevedo],                        # A::C::Portuguese
     BURAK     => q[Burak Gürsoy],                        # A::C::Turkish
+    ETHER     => q[Karen Etheridge],                      # A::C::Nonhuman
     FAYLAND   => q[Fayland 林],                          # A::C::Chinese
     FLORA     => q[Florian Ragwitz],                      # A::C::German
     GARU      => q[Breno G. de Oliveira],                 # A::C::Brazilian
+    GRAY      => q[gray],                                 # A::C::GitHub
     GUGOD     => q[劉康民],                            # A::C::Taiwanese
     HINRIK    => q[Hinrik Örn Sigurðsson],              # A::C::Icelandic
     ISHIGAKI  => q[Kenichi Ishigaki],                     # The Original
+    JEEN      => q[Jeen Lee],                             # A::C::Korean
+    JLMARTIN  => q[Jose Luis Martinez Torres],            # A::C::Catalonian
+    KAARE     => q[Kaare Rasmussen],                      # A::C::Danish
     KENTARO   => q[Kentaro Kuribayashi],                  # A::C::GeekHouse
     MARCEL    => q[Marcel Grünauer == hanekomu],         # A::C::Austrian
     MONS      => q[Mons Anderson],                        # A::C::AnyEvent
+    RBO       => q[Robert Bohne],                         # A::C::German
+    SALVA     => q[Salvador Fandiño García],            # A::C::Spanish
     SANKO     => q[Sanko Robinson],                       # Hey, that's me!
     SAPER     => q[Sébastien Aperghis-Tramoni],          # A::C::French
     SFINK     => q[Steve A Fink],                         # A::C::Not
+    SHANTANU  => q[Shantanu Bhadoria],                    # A::C::India
     SHARIFULN => q[Анатолий Шарифулин],  # A::C::Russian
     SHARYANTO => q[Steven Haryanto],                      # A::C::Indonesian
     SHLOMIF   => q[Shlomi Fish],                          # A::C::Israeli
+    SKIM      => q[Michal Špaček],                      # A::C::Czech
+    SROMANOV  => q[Сергей Романов],          # A::C::Belarusian
     VPIT      => q[Vincent Pit],                          # A::C::You're_using
+    WOLDRICH  => q[Magnus Woldrich],                      # A::C::Swedish
     ZOFFIX    => q[Zoffix Znet]                           # A::C::Canadian
 );
+
+sub _regen {
+    require HTTP::Tiny;
+    my $data    = '';
+    my $authsec = 0;
+    my %authors;
+    die "Failed\n"
+        unless HTTP::Tiny->new->request(
+        'GET',
+        'http://www.cpan.org/modules/02packages.details.txt',
+        {data_callback => sub {    # Don't scrape the whole file
+             my $chunk = shift;
+             if ($chunk =~ m[^Acme::CPANAuthors]sm) {
+                 $authsec++;
+                 $data .= $chunk;
+             }
+             elsif ($authsec) {    # No more Authors in 02packages
+                 while ($data
+                     =~ m[^(?:Acme::CPANAuthors(?:::(\S+))?).+\w/\w\w/(\w+)/.+$]mg
+                     )
+                 {   $authors{$2} //= [];
+                     push @{$authors{$2}}, $1;
+                 }
+                 my %old = authors();    # Current authors
+                 my @new = grep { defined $old{$_} ? () : $_ } keys %authors;
+                 print scalar(@new)
+                     . " new Acme::CPANAuthors authors to add\n";
+                 return if !@new;
+                 require MetaCPAN::API;
+                 my $mcpan = MetaCPAN::API->new();
+                 binmode(STDOUT, ':utf8');
+
+                 for my $id (sort @new) {
+                     my $author = $mcpan->author($id);
+                     printf "    %s => q[%s], # %s\n", $id, $author->{name},
+                         join ', ', map { 'A::C::' . $_ } @{$authors{$id}};
+                 }
+                 exit    # We're done
+             }
+             }
+        }
+        )->{success};
+}
 1;
 
 =head1 Synopsis
@@ -113,7 +167,7 @@ You can also look for information at:
 
 =item * Issue Tracker: Acme::CPANAuthors::Acme::CPANAuthors::Authors' bug tracker
 
-http://code.google.com/p/sanko/issues/list
+http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/issues/
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -129,7 +183,7 @@ http://search.cpan.org/dist/Acme-CPANAuthors-Acme-CPANAuthors-Authors
 
 =item * Version Control Repository:
 
-http://code.google.com/p/sanko/source/browse/#svn/trunk/Acme-CPANAuthors-Acme-CPANAuthors-Authors
+http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/
 
 =back
 
@@ -154,7 +208,7 @@ CPAN ID: SANKO
 
 =head1 License and Legal
 
-Copyright (C) 2009 by Sanko Robinson E<lt>sanko@cpan.orgE<gt>
+Copyright (C) 2009-2013 by Sanko Robinson E<lt>sanko@cpan.orgE<gt>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of The Artistic License 2.0.  See the F<LICENSE>

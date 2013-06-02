@@ -1,36 +1,37 @@
 ---
-name: Acme-CPANAuthors-Acme-CPANAuthors-Authors
-version: 0.1257908582
+abstract: 'We are CPAN authors who have authored Acme::CPANAuthors modules'
 author:
-  - 'Sanko Robinson <sanko@cpan.org>'
-abstract: We are CPAN authors who have authored Acme::CPANAuthors modules
-license: artistic_2
-resources:
-  ChangeLog: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/commits/master
-  bugtracker: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/issues
-  license: http://www.perlfoundation.org/artistic_license_2_0
-  repository: http://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/
+  - 'Sanko Robinson <sanko@cpan.org> - http://sankorobinson.com/'
 build_requires:
   Test::More: 0
-requires:
-  Acme::CPANAuthors: 0.09
-  Acme::CPANAuthors::Register: 0
-  perl: 5.006
 configure_requires:
-  Module::Build: 0.35
-provides:
-  Acme::CPANAuthors::Acme::CPANAuthors::Authors:
-    file: lib/Acme/CPANAuthors/Acme/CPANAuthors/Authors.pm
-    version: 0.1257908582
-generated_by: 'Conversion, software version 7.0'
+  Module::Build::Tiny: 0.020
+dynamic_config: 0
+generated_by: 'Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880'
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-keywords:
-  - Acme
-  - CPAN
-  - CPANAuthors
-  - Authors
-  - stupid
-  - vanity
-  - module
+name: Acme-CPANAuthors-Acme-CPANAuthors-Authors
+no_index:
+  directory:
+    - t
+    - xt
+    - inc
+    - share
+    - eg
+    - examples
+requires:
+  Acme::CPANAuthors::Register: 0
+  perl: 5.010
+  strict: 0
+  version: 0
+  warnings: 0
+resources:
+  bugtracker: https://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors/issues
+  homepage: https://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors
+  repository: https://github.com/sanko/acme-cpanauthors-acme-cpanauthors-authors.git
+version: v1.0.0
+x_contributors:
+  - 'Karen Etheridge <ether@cpan.org>'
+  - 'Sergey Romanov <complefor@rambler.ru>'
